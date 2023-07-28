@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../Shared/Navbar/Navbar';
+import Dashboard from './Dashboard';
 
 const Main = () => {
     return (
-        <div className='my-container'>
-            <Navbar></Navbar>
+        <div className='my-container bg-blue-100'>
+             <Dashboard></Dashboard> 
         </div>
     );
 };

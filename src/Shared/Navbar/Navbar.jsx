@@ -10,7 +10,7 @@ import { FaAngleDown } from 'react-icons/fa';
 const NavBar = () => {
     const navOptions = <>
         <li className='border rounded-lg'><Link to=""><FaAngleLeft size={22} /></Link></li>
-        <li className='ml-2'><Link to="/myjobs">My Jobs</Link></li>
+        <li className='ml-2'><Link to="">My Jobs</Link></li>
         <li><Link to=""><FaAngleRight size={12} /> Frontend Developer</Link></li>
         <li><Link to=""><FaAngleRight size={12} />Job Management</Link></li>
     </>
@@ -24,7 +24,7 @@ const NavBar = () => {
     </>
     return (
         <div className='my-container mx-auto'>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-[#FEFEFF]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -34,7 +34,7 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <img src={logo} alt="" sizes="" srcset="" />
+                    <img src={logo} className='ml-4' alt="" sizes="" srcset="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
