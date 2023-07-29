@@ -1,89 +1,10 @@
 import React, { useState } from 'react';
 import { FaCog } from 'react-icons/fa';
 import { Link, Outlet } from "react-router-dom";
-const FormComponent = () => {
-    return (
-      <div className='mt-4'>
-        <h3 className='font-semibold'>Job Management</h3>
-        <form>
-          {/* Add your form inputs here */}
-          <div>
-            <label htmlFor='jobTitle'>Job Title</label>
-            <input type='text' id='jobTitle' />
-          </div>
-          <div>
-            <label htmlFor='jobDescription'>Job Description</label>
-            <textarea id='jobDescription' rows='4' cols='50' />
-          </div>
-          <button type='submit'>Submit</button>
-        </form>
-      </div>
-    );
-  };
-  
-  const SubMenu = ({ selectedOption, submenuData, onOptionClick }) => {
-    return (
-      selectedOption && (
-        <div className='bg-base-200 rounded p-8'>
-          <ul className='flex gap-5'>
-            {submenuData.map((optionData, index) => (
-              <li key={index}>
-                <Link to='' onClick={() => onOptionClick(optionData.optionName)}>
-                  {optionData.optionName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {selectedOption === 'Job Management' && <FormComponent />}
-        </div>
-      )
-    );
-  };
 
 
 const Header = () => {
-    const [selectedOption, setSelectedOption] = useState('');
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const frontendData = [
-    {
-      optionName: 'Job Management',
-    },
-    {
-      optionName: 'JD Rewrite',
-    },
-    {
-      optionName: 'R3achout',
-    },
-    // Add more frontendData options as needed
-  ];
-
-  const backendData = [
-    {
-      optionName: 'Submenu Option 3',
-    },
-    {
-      optionName: 'Submenu Option 4',
-    },
-    // Add more backendData options as needed
-  ];
-
-  const fullStackData = [
-    {
-      optionName: 'Submenu Option 5',
-    },
-    {
-      optionName: 'Submenu Option 6',
-    },
-    // Add more fullStackData options as needed
-  ];
-
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-  };
+    
     return (
         <>
             <div className='p-8'>
@@ -134,10 +55,10 @@ const Header = () => {
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 space-x-2">
-                            <li tabIndex={0} onBlur={() => setSelectedOption('')}>
+                            <li tabIndex={0}>
                                 <a className='ml-1 text-gray-500'>Job Title</a>
                                 <div>
-                                    <select className=" font-semibold" value={selectedOption} onChange={handleOptionChange}>
+                                    <select className=" font-semibold">
                                         <option value="Frontend Developer">Frontend Developer</option>
                                         <option value="Backend Developer">Backend Developer</option>
                                         <option value="Full Stack Developer">Full Stack Developer</option>
@@ -174,22 +95,6 @@ const Header = () => {
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div className='p-8 '>
-            <SubMenu
-          selectedOption={selectedOption}
-          submenuData={
-            selectedOption === 'Frontend Developer'
-              ? frontendData
-              : selectedOption === 'Backend Developer'
-              ? backendData
-              : selectedOption === 'Full Stack Developer'
-              ? fullStackData
-              : []
-          }
-          onOptionClick={handleOptionClick}
-        />
-                
             </div>
         </>
     );
